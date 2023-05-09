@@ -1,0 +1,6 @@
+{
+    "posts": [
+      { "id": 1, "title": "json-server", "author": "hola como estas?" }
+    ],
+    "id":  [ 1, "que mas ve", "tu si so que putaso"]
+  }

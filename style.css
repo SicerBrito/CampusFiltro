@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-image: url(./img/HD-wallpaper-space-planet-explosion-light.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.newspaper {
+    column-count: 2;
+    column-gap: 0px;
+}
+
+.izq{
+    margin-top: 20%;
+    margin-left: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline
+}
+
+.tamaño2{
+    color: rgb(230, 110, 230);
+    font-size: 2.8rem;
+}
+
+.tamaño1{
+    color: white;
+    font-size: 5.5rem;
+}
+
+.der{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+
+
+.vul{
+    width: 150px;
+    height: 60px;
+}

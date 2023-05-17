@@ -1,195 +1,39 @@
-let link = document.createElement("link");
-link.rel = "stylesheet";
-link.type = "text/css";
-link.href =
-  "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
-link.media = "all";
-document.getElementsByTagName("head")[0].appendChild(link);
+const API_URL = 'http://localhost:3000/users';
 
-baseDeDatosLogin = JSON.parse(localStorage.getItem("sistema-de-login"));
+// Registro de usuario
+let registerForm = document.querySelector('#registerForm');
 
-let usuarioLogueado
-
-
-if (!baseDeDatosLogin) {
-  cargarDatosInicialesDeLaBaseDeDatosLogin();
-}
-
-function guardarDatosDeLaBaseDeDatosLogin() {
-  localStorage.setItem("sistema-de-login", JSON.stringify(baseDeDatosLogin));
-}
-
-function cargarDatosInicialesDeLaBaseDeDatosLogin() {
-  baseDeDatosLogin = {
-    1234567890: {
-      contraseña: "abc",
-      puntaje: 0,
+registerForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  let data = Object.fromEntries(new FormData(e.target));
+  let response = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
     },
-  };
-}
-
-async function menúBásico() {
-  opción_menúBásico = -1;
-  await swal.fire({
-    title: "Menú",
-    showConfirmButton: false,
-    html: `
-        <button class="swal2-confirm swal2-styled" onclick='opción_menúBásico=0;Swal.close()'>
-            Registrar nuevo usuario
-        </button>
-        <br>
-        <button class="swal2-confirm swal2-styled" onclick='opción_menúBásico=1;Swal.close()'>
-            Login
-        </button>
-        `,
+    body: JSON.stringify(data)
   });
-  switch (opción_menúBásico) {
-    case 0:
-      registrarNuevoUsuario();
-      break;
-    case 1:
-      login();
-      break;
-    default:
-      await menúBásico();
-      break;
-  }
-}
+  let result = await response.json();
+  console.log(result);
+  alert('Usuario registrado correctamente');
+  registerForm.reset();
+});
 
-async function mostrarUsuariosPorTabla(...propiedades) {
-  if(!usuarioLogueado){
-    return
-  }
-  let html = `
-  <table class="table table-light table-striped">
-    <theader>
-    <th>
-      Usuario
-    </th>
-  `;
-  if (propiedades[0] == "*") {
-    for (const usuario in baseDeDatosLogin) {
-      for (const propiedad in baseDeDatosLogin[usuario]) {
-        html += "<th>";
-        html += propiedad;
-        html += "</th>";
-      }
-      break;
-    }
-  } else {
-    for (const propiedad of propiedades) {
-      html += "<th>";
-      html += propiedad;
-      html += "</th>";
-    }
-  }
-  html += "</theader><tbody>";
-  for (const usuario in baseDeDatosLogin) {
-    html += "<tr>";
-    html += "<td>";
-    html += usuario;
-    html += "</td>";
-    if (propiedades[0] == "*") {
-      for (const propiedad in baseDeDatosLogin[usuario]) {
-        html += "<td>";
-        html += baseDeDatosLogin[usuario][propiedad];
-        html += "</td>";
-      }
+// Inicio de sesión
+let loginForm = document.querySelector('#loginForm');
+
+loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let data = Object.fromEntries(new FormData(e.target));
+    let response = await fetch(API_URL + `?username=${data.username}&password=${data.password}`);
+    let result = await response.json();
+    if (result.length > 0) {
+      alert('Inicio de sesión exitoso');
+      loginForm.reset();
+      // Redirigir a la página de inicio
+      window.location.href = '../html/datos.html';
     } else {
-      for (const propiedad of propiedades) {
-        html += "<td>";
-        html += baseDeDatosLogin[usuario][propiedad];
-        html += "</td>";
-      }
+      alert('Usuario o contraseña incorrectos');
     }
-
-    html += "</tr>";
-  }
-  await swal.fire({
-    text: "Usuarios",
-    confirmButtonText: "Cerrar",
-    html,
   });
-}
-
-async function registrarNuevoUsuario() {
-  opción_registrarNuevoUsuario = -1;
-  await swal.fire({
-    title: "Registrar",
-    showConfirmButton: false,
-    html: `
-        <input class="swal2-input" placeholder="Usuario" id="usuario">
-        <input type="password" class="swal2-input" placeholder="Contraseña" id="contraseña">
-        <button class="swal2-confirm swal2-styled" onclick='opción_registrarNuevoUsuario=0;Swal.clickConfirm()'>
-            Crear
-        </button>
-        <button class="swal2-confirm swal2-styled" onclick='opción_registrarNuevoUsuario=1;Swal.close()'>
-            Cancelar
-        </button>
-        `,
-    preConfirm: () => {
-      let usuario = document.getElementById("usuario").value;
-      let contraseña = document.getElementById("contraseña").value;
-      if (!usuario) {
-        Swal.showValidationMessage("No hay usuario");
-        return false;
-      }
-      if (!contraseña) {
-        Swal.showValidationMessage("No hay contraseña");
-        return false;
-      }
-      baseDeDatosLogin[usuario] = {};
-      baseDeDatosLogin[usuario].contraseña = contraseña;
-      baseDeDatosLogin[usuario].puntaje = 0;
-      guardarDatosDeLaBaseDeDatosLogin();
-      return true;
-    },
-  });
-  switch (opción_registrarNuevoUsuario) {
-    case 0:
-      menúBásico();
-      break;
-    case 1:
-      menúBásico();
-      break;
-    default:
-      menúBásico();
-      break;
-  }
-}
-
-async function login() {
-  await swal.fire({
-    title: "Bienvenido",
-    confirmButtonText: "Login",
-    html: `
-        <div style="margin:5px">
-            <input class="swal2-input" placeholder="usuario" id="usuario">
-            <input type="password" class="swal2-input" placeholder="contraseña" id="contraseña">
-        </div>
-        `,
-    preConfirm: () => {
-      let usuario = document.getElementById("usuario").value;
-      let contraseña = document.getElementById("contraseña").value;
-      if (!usuario) {
-        Swal.showValidationMessage("No hay usuario");
-        return false;
-      }
-      if (!contraseña) {
-        Swal.showValidationMessage("No hay contraseña");
-        return false;
-      }
-      let datos = baseDeDatosLogin[usuario];
-      if (!datos) {
-        Swal.showValidationMessage("El usuario no existe");
-        return false;
-      }
-      if (datos.contraseña != contraseña) {
-        Swal.showValidationMessage("Contraseña incorrecta");
-        return false;
-      }
-      usuarioLogueado = datos
-      return true;
-    },
-  });
-}
+  const userForm = document.getElementById('user-form');

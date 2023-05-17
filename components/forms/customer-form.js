@@ -5,29 +5,25 @@ export class CustomerForm extends HTMLElement{
     }
     render(){
         this.innerHTML = `
+        <div class="login-box">
+        <h2>Login</h2>
         <form>
-            <label for="Categoria">Categoria:</label>
-            <input id="Categoria" name="Categoria">
-
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name">
-
-            <label for="cedula">Cedula:</label>
-            <input type="text" id="cedula" name="cedula">
-
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email">
-
-            <button type="submit">Enviar</button>
-
-            <ul id="messages-list"></ul>
+            <div class="user-box">
+            <input type="text" name="" required="">
+            <label>Username</label>
+            </div>
+            <div class="user-box">
+            <input type="password" name="" required="">
+            <label>Password</label>
+            </div>
+            <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+            </a>
         </form>
-        <div  style="display: flex; justify-content: flex-end;">
-            <a href="../myData/customers.html"><button>Agregar</button></a>
-        </div>
-
-        <div style="display: flex; justify-content: flex-end; class="container mt-4 text-center">
-            <a href="#" class="btn btn-success" id="btnGuardar">Guardar Cliente</a>
         </div>`
     }
 };

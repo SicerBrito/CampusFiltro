@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon " href="../img/planeta.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.all.min.js"></script>
+
+    <title>Filtro</title>
+    
+    <link rel="stylesheet" href="../css/datos.css">
+    <script src="/js/appClientes.js" type="module" defer></script>
+    <script src="/js/newClientes.js" type="module" defer></script>
+</head>
+<body>
+
+    <input type="checkbox" id="navcheck" role="button" title="menu">
+    <main style="padding-bottom: 50px;">
+        <div class="derecha">
+            <img src="../img/logo.png" alt="logo" width="400px" >
+        </div>
+    </main>
+    <label for="navcheck" aria-hidden="true" title="menu">
+        
+    <span class="burger">
+        
+        <span class="bar">
+            <!-- 
+            <main-menu></main-menu> -->
+        </span>
+    </span>
+    </label>
+    <nav id="menu">
+    <a href="./categories.html">Categories</a>
+    <a href="./pruducts.html">Pruducts</a>
+    <a href="./customers.html">Customers</a>
+    <a href="./users.html">Users</a>
+    <a href="./sales.html">Sales</a>
+    <a href="./shopping.html">Shopping</a>
+    <a href="./reports.html">Reports</a>
+    <a href="../index.html" class="abajo">Logout</a>
+    </nav>
+    
+    <h1 class="titulo">Customers</h1>
+
+
+    <div class="modal fade" id="nuevaCli" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header color1">
+              <h1 class="modal-title fs-5 headerr" id="exampleModalLabel">Register Cliente</h1>
+            </div>
+            <div class="modal-body">
+              <form id="formularioClientes" class="row g-3" method="POST">
+                <div class="col-md-12">
+                  <label for="nombreCli" class="form-label header mod">Nombre</label>
+                  <input type="text" class="form-control" id="nombreCli">
+                </div>
+                <div class="col-md-12">
+                    <label for="direccion" class="form-label header mod">Direccion</label>
+                    <input type="text" class="form-control" id="direccion">
+                  </div>
+                  <div class="col-md-12">
+                    <label for="telefono" class="form-label header mod">Telefono</label>
+                    <input type="text" class="form-control" id="telefono">
+                  </div>
+                  <div class="col-md-12">
+                    <label for="imagen" class="form-label header"></label>
+                    <input type="file" class="form-control" id="imagen">
+                  </div>
+    
+            </div>
+            <div class="modal-footer ">
+              <button type="button" class="btn btn-secondary color3 border3 headerr" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn color5 color-heder headerr" data-bs-toggle="modal"
+                data-bs-target="#exampleModal2">Enviar Registro</button>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+    
+      <!-- //////////////////////////////////////Campers Dynamic Table-->
+      <div class="div2 alertaAlerta" style="background-color: #233249;">
+          <div class="align-items-center d-flex gap-3 margin-rigth">
+            <a href=""><i class="bi bi-envelope text-white" style="font-size: 1.5rem; cursor:pointer "></i></a>
+            <a href=""><i class="bi bi-bell text-white " style="font-size: 1.5rem; cursor:pointer "></i></a>
+            <a href=""><i class="bi bi-person-square text-white" style="font-size: 1.5rem; cursor:pointer "></i></a>
+          </div>
+    
+        <!-- DINAMYC TABLE -->
+    
+        <div class="center"> 
+          <button class="btn btn-outline-warning headerr" type="submit" data-bs-toggle="modal"
+                  data-bs-target="#nuevaCli">Nuevo Cliente</button>
+        </div>
+        <div id="div3" class="conta">
+          <table class="table">
+            <thead class="menu-busqueda">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">IMAGEN</th>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">DIRECCION</th>
+                <th scope="col">TELEFONO</th>
+                <th scope="col">BORRAR</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyClii" class="table-group-divider listaCliente">
+    
+    
+    
+            </tbody>  
+          </table>
+        </div>
+      </div>
+    
+</body>
+</html>

@@ -5,12 +5,14 @@ export class MainMenu extends HTMLElement{
     }
     render(){
         this.innerHTML=  `
-        <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid cabeza">
-          <a class="navbar-brand imga" href="#"><img src="../img/channels.png" alt="" width="90px" height="90px" class="d-inline-block align-text-top">UP TO YOU</a>
-        </div>
-      </nav>
-      <button class="d-flex flex-end">Agregar</button>`
+        <h1>hola mundo</h1>
+        <a href="#">categories</a>
+        <a href="#">Pruducts</a>
+        <a href="#">Customers</a>
+        <a href="#">Users</a>
+        <a href="#">Sales</a>
+        <a href="#">Shopping</a>
+        <a href="#">Reports</a>`
     }
 }
 customElements.define("main-menu",MainMenu);

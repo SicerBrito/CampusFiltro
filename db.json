@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "name-input": "sicer",
+      "Email-input": "brito@hh.com",
+      "password": "123",
+      "vehicle1": "Bike",
+      "id": 3
+    },
+    {
+      "name-input": "juan",
+      "Email-input": "brito@hh.com",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "name-input": "pedro",
+      "Email-input": "brito@hh.com",
+      "password": "123",
+      "id": 5
+    }
+  ],
+  "categories": [
+    {
+      "nombre": "ropa",
+      "id": 1
+    },
+    {
+      "nombre": "food",
+      "id": 2
+    },
+    {
+      "nombre": "animales",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "nombre": "Gaseosas",
+      "precio": 3000,
+      "stock": "12",
+      "categoriaId": "1"
+    },
+    {
+      "nombre": "camisa",
+      "precio": "2",
+      "stock": "5",
+      "categoriaId": "ropa",
+      "id": 2
+    }
+  ],
+  "customers": [
+    {
+      "imagen": "C:\\fakepath\\logo.png",
+      "nombre": "sicer",
+      "direccion": "mi casa",
+      "telefono": "123",
+      "id": 1
+    }
+  ]
+}

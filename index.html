@@ -13,26 +13,120 @@
     <title>Filtro</title>
     
     <link rel="stylesheet" href="style.css">
-    <script src="./js/login.js"></script>
+    <script src="./js/login.js" defer></script>
 
 </head>
 <body>
-    <script>
-        menúBásico()
-    </script>
 
     
     <div class="newspaper">
-        <div class="column izq">
+            <div class="column izq">
                 <h2 class="tamaño2">SISTEMA DE <br> FACTURACION Y <br> MARKETING</h2>
                 <h1 class="tamaño1">Campus <br> 2.0</h1><br>
-                <a href="./html/datos.html"><button class="btn vul" style="color: rgb(236, 118, 236); border: solid; border-radius: 50px;">GO FOR IT</button></a> 
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="button" class="btn lll" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                    Iniciar sesión
+                                </button>
+                                
+                                <!-- Modal de registro -->
+                                <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content" style="padding-top: 550px; background-color: transparent;">
+                                            <div class="modal-body">
+                                                <div class="login-box">
+                                                    <form id="registerForm">
+                                                        <div class="container">
+                                                            <button type="button" class="btn-close dul" data-bs-dismiss="modal" aria-label="Cerrar"></button><br>
+                                                        </div>
+                                                        <h1 class="color">Sign up</h1>
+                                                        <div class="user-box">
+                                                            <input type="text" id="name-input" name="name-input" required>
+                                                            <label for="name-input">Username</label>
+                                                        </div>
+                                                        <div class="user-box">
+                                                            <input type="email" name="Email-input" required>
+                                                            <label for="Email-input">Email</label>
+                                                        </div>
+                                                        <div class="user-box">
+                                                            <input type="password" name="password" required>
+                                                            <label>Password</label>
+                                                        </div>
+                                                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                                        <label for="vehicle1" class="color" required>Aceptar Cookies</label><br>
+                                                        <div class="three">
+                                                            <a href="#">
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                            <span></span>
+                                                            <button type="submit" class="btn color">Submit</button>
+                                                            </a>
+                                                        </div >
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4" >
+                                <!-- boton registro -->
+                                <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content" style="padding-top: 150px; background-color: transparent;">
+                                            <div class="modal-body">
+                                                <div class="login-box">
+                                                    <form id="loginForm">
+                                                        <form id="registerForm">
+                                                            <div class="container">
+                                                                <button type="button" class="btn-close dul" data-bs-dismiss="modal" aria-label="Cerrar"></button><br>
+                                                            </div>
+                                                            <h1 class="color">Log in</h1>
+                                                            <div class="user-box">
+                                                                <input type="text" name="username" required>
+                                                                <label for="username">Username</label>
+                                                            </div>
+                                                            <div class="user-box">
+                                                                <input type="password" name="password" required>
+                                                                <label for="password">Password</label>
+                                                            </div>
+                                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                                            <label for="vehicle1" class="color" required>Aceptar Cookies</label><br>
+                                                            <div class="two">
+                                                                <a href="#">
+                                                                <span></span>
+                                                                <span></span>
+                                                                <span></span>
+                                                                <span></span>
+                                                                <button href="https://www.w3schools.com/html/html_forms.asp" type="submit" class="btn color">Sing in</button>
+                                                                </a>
+                                                                <a href="#">
+                                                                <span></span>
+                                                                <span></span>
+                                                                <span></span>
+                                                                <span></span>
+                                                                <button type="button" class="btn color" data-bs-toggle="modal" data-bs-target="#registerModal">Sing up</button>
+                                                                </a>
+                                                            </div>
+                                                        </form>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="column lala">
+            <img class="der" src="./img/astronauta.png" alt="img" width="100%">
         </div>
-        <div class="column der">
-                <img class="der" src="./img/astronauta.png" alt="img" width="97%">
-        </div>
-      </div>
-      
+    </div>
 
     
     

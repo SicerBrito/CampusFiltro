@@ -18,6 +18,13 @@
       "Email-input": "brito@hh.com",
       "password": "123",
       "id": 5
+    },
+    {
+      "name-input": "yeiber",
+      "Email-input": "sicer@h.com",
+      "password": "123",
+      "vehicle1": "Bike",
+      "id": 6
     }
   ],
   "categories": [

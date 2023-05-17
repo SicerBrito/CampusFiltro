@@ -228,6 +228,15 @@ h1 {
   justify-content: center;
 }
 
+
+.boar{
+  display: flex;
+  justify-content: center;
+  color: #ffa700;
+  font-size: 22rem;
+}
+
+
 .titulo{
   display: flex;
   justify-content: center;
